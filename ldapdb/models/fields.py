@@ -34,7 +34,7 @@
 
 from django.db.models import fields, SubfieldBase
 
-from ldapdb import escape_ldap_filter
+from ldapdb import escape_ldap_filter, forms
 
 class CharField(fields.CharField):
     def __init__(self, *args, **kwargs):
@@ -142,3 +142,7 @@ class ListField(fields.Field):
             return []
         return value
 
+    def formfield(self, **kwargs):
+        defaults = {'form_class': forms.ListField}
+        defaults.update(kwargs)
+        return super(ListField, self).formfield(**defaults)
