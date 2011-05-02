@@ -13,6 +13,7 @@ setup(
         'ldapdb',
         'ldapdb.backends',
         'ldapdb.backends.ldap',
-        'ldapdb.models'
+        'ldapdb.models',
+        'ldapdb.forms'
         ],
     )
